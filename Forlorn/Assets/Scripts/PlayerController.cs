@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Transform movePoint;
 
+    public LayerMask stopMovement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,19 @@ public class PlayerController : MonoBehaviour
             // Checking if there is any horizontal input, left or right
             if( Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
-                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                // Checks to see if there is something ahead
+                if( !Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), 0.2f, stopMovement))
+                {
+                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                }
             }
             // Checking if there is any vertical input, up or down
-            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
-                movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, stopMovement))
+                {
+                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                }
             }
         }
 
