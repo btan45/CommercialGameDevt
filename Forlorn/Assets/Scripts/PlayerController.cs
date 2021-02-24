@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Transform movePoint;
 
     public LayerMask stopMovement;
+    private Animator playerAnimator = null;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
         // Makes sure that PlayerMovePoint is not a child
         movePoint.parent = null;
 
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,8 +31,9 @@ public class PlayerController : MonoBehaviour
             // Checking if there is any horizontal input, left or right
             if( Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
+
                 // Checks to see if there is something ahead
-                if( !Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), 0.2f, stopMovement))
+                if ( !Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), 0.2f, stopMovement))
                 {
                     movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
                 }
@@ -45,5 +48,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // Animator
+        if (Input.GetKey("down"))
+        {
+            playerAnimator.SetBool("isFront", true);
+        }
+        else if (Input.GetKey("up"))
+        {
+            playerAnimator.SetBool("isBack", true);
+        }
+        else if (Input.GetKey("left"))
+        {
+            playerAnimator.SetBool("isLeft", true);
+        }
+        else if (Input.GetKey("right"))
+        {
+            playerAnimator.SetBool("isRight", true);
+        }
+      
     }
 }
