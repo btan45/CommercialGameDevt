@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask stopMovement;
     private Animator playerAnimator = null;
 
+    private static bool playerExists;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,17 @@ public class PlayerController : MonoBehaviour
         movePoint.parent = null;
 
         playerAnimator = GetComponent<Animator>();
+
+        //if(!playerExists)
+        //{
+        //    playerExists = true;
+        //    DontDestroyOnLoad(transform.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
+
     }
 
     // Update is called once per frame
