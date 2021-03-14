@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/LevelOne.unity
@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelPuzzle.unity
     guid: 53e06ef98076eed49b200f49b1b0461e
   - enabled: 1
-    path: Assets/Scenes/InstructionsMenu.unity
+    path: Assets/Scenes/Menus/InstructionsMenu.unity
     guid: edfe7c02381d9024d86124ed6b3e1044
   - enabled: 1
-    path: Assets/Scenes/SettingsMenu.unity
+    path: Assets/Scenes/Menus/SettingsMenu.unity
     guid: 944b419e758bea54e8e06f43d7947182
   m_configObjects: {}
