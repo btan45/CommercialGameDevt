@@ -684,13 +684,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6767118824950908606, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767118824950908606, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.70347214
+      objectReference: {fileID: 0}
     - target: {fileID: 6782249040623596165, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.82
+      value: 11.38
       objectReference: {fileID: 0}
     - target: {fileID: 6782249040623596165, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 6782249040623596165, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -736,6 +744,10 @@ PrefabInstance:
       propertyPath: rb2D
       value: 
       objectReference: {fileID: 1667796211}
+    - target: {fileID: 6782249040623596219, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 82b4b0437bae2fc4daa3e0230d6168f9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
 --- !u!4 &677766131 stripped
@@ -5446,7 +5458,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 779673543433151962, guid: 05c2b60ad7102774ca385453456f23d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05c2b60ad7102774ca385453456f23d5, type: 3}
 --- !u!1 &4641535146003939220 stripped
 GameObject:
@@ -5466,3 +5479,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Hallway1
+  playerPosition: {x: -13.6, y: -1.7}
+  playerStorage: {fileID: 11400000, guid: 82b4b0437bae2fc4daa3e0230d6168f9, type: 2}

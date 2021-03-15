@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private static bool playerExists;
 
+    public VectorValue startingPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
         movePoint.parent = null;
 
         playerAnimator = GetComponent<Animator>();
+
+        transform.position = startingPosition.initialVlaue;
 
     }
 

@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Area1/CryostasisChamber.unity
+    guid: c89840c12242d114e8fb2de0c86d9346
+  - enabled: 1
+    path: Assets/Scenes/Area1/Hallway1.unity
+    guid: 4e2393caae2045e478e45831b734c659
+  - enabled: 1
+    path: Assets/Scenes/Area1/CaptainRoom.unity
+    guid: 815b0031f5db47540a95fe5b9e0e798d
+  - enabled: 1
     path: Assets/Scenes/LevelOne.unity
     guid: 2ea518ce75b6e9846a6838c57374642a
   - enabled: 1
