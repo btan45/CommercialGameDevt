@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("LevelOne");
+        SceneManager.LoadScene("CryostasisChamber");
     }
 
     public void GoToSettingsMenu()
