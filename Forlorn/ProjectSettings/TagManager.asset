@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - StopMovement
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -42,9 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 876998595
+  - name: Background
+    uniqueID: 3529443833
     locked: 0
   - name: Interactables
     uniqueID: 2933083955
+    locked: 0
+  - name: Player
+    uniqueID: 876998595
     locked: 0

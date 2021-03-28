@@ -5,81 +5,60 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Transform movePoint;
+    public float moveSpeed;
 
-    public LayerMask stopMovement;
-    private Animator playerAnimator = null;
+    private bool isMoving;
+    private Vector2 input;
 
-    private static bool playerExists;
+    private Animator animator;
 
-    public VectorValue startingPosition;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        // Makes sure that PlayerMovePoint is not a child
-        movePoint.parent = null;
-
-        playerAnimator = GetComponent<Animator>();
-
-        transform.position = startingPosition.initialVlaue;
-
+        {
+            animator = GetComponent<Animator>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        // Player moves toward the PlayerMovePoint
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
-        // Checks the distance first before moving
-        if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
+        if (!isMoving)
         {
-            // Checking if there is any horizontal input, left or right
-            if (Mathf.Abs(horizontalInput) == 1f)
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+
+            if (input.x != 0)
             {
-                // Checks to see if there is something ahead
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(horizontalInput, 0f, 0f), 0.2f, stopMovement))
-                {
-                    movePoint.position += new Vector3(horizontalInput, 0f, 0f);
-                }
+                input.y = 0;
             }
-            // Checking if there is any vertical input, up or down
-            else if (Mathf.Abs(verticalInput) == 1f)
+
+            if (input != Vector2.zero)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, verticalInput, 0f), 0.2f, stopMovement))
-                {
-                    movePoint.position += new Vector3(0f, verticalInput, 0f);
-                }
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+
+                var targetPos = transform.position;
+                targetPos.x += input.x;
+                targetPos.y += input.y;
+
+                StartCoroutine(Move(targetPos));
             }
         }
 
+        animator.SetBool("isMoving", isMoving);
+    }
 
-        bool isFront = verticalInput < 0;
-        bool isBack = verticalInput > 0;
-        bool isLeft = horizontalInput < 0;
-        bool isRight = horizontalInput > 0;
-        bool isIdle = horizontalInput == 0 && verticalInput == 0;
+    IEnumerator Move(Vector3 targetPos)
+    {
+        isMoving = true;
 
-        // Animator
-        playerAnimator.SetBool("isFront", isFront);
-
-        playerAnimator.SetBool("isBack", isBack);
-
-        playerAnimator.SetBool("isLeft", isLeft);
-
-        playerAnimator.SetBool("isRight", isRight);
-
-        playerAnimator.SetBool("isIdle", isIdle);
-
-        if (Input.GetKeyDown(KeyCode.Escape) == true)
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            SceneManager.LoadScene("MainMenu");
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
         }
+        transform.position = targetPos;
 
+        isMoving = false;
     }
 }
+
