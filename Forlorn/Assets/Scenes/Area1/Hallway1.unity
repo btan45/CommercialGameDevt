@@ -302,6 +302,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.4921741}
   m_EdgeRadius: 0
+--- !u!4 &257509020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4026092518934730554, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+  m_PrefabInstance: {fileID: 325150496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &271702502
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4026092518934730554, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6767118824950908606, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
       propertyPath: m_Offset.x
       value: 0.00000047683716
@@ -517,11 +526,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &450876480 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6782249040623596165, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
-  m_PrefabInstance: {fileID: 325150496}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &462189531
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +746,7 @@ GameObject:
   - component: {fileID: 849073628}
   - component: {fileID: 849073627}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,8 +803,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -765523463
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3258,7 +3262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &895470806
 MonoBehaviour:
@@ -3272,7 +3276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96107f3aa7a9ffb4da3824cd4c582d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 450876480}
+  target: {fileID: 257509020}
 --- !u!1 &922611477
 GameObject:
   m_ObjectHideFlags: 0

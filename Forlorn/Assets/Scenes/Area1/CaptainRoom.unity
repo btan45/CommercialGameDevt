@@ -169,6 +169,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &335266378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4026092518934730554, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+  m_PrefabInstance: {fileID: 1443300765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &428236013
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +242,7 @@ GameObject:
   - component: {fileID: 431328602}
   - component: {fileID: 431328601}
   - component: {fileID: 431328600}
+  - component: {fileID: 431328603}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -307,8 +313,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431328603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431328599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96107f3aa7a9ffb4da3824cd4c582d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 335266378}
 --- !u!1 &616568481
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +340,7 @@ GameObject:
   - component: {fileID: 616568484}
   - component: {fileID: 616568483}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,8 +397,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -765523463
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2071,6 +2090,7 @@ GameObject:
   - component: {fileID: 758604256}
   - component: {fileID: 758604255}
   - component: {fileID: 758604254}
+  - component: {fileID: 758604258}
   m_Layer: 9
   m_Name: CaptainPlacement
   m_TagString: Untagged
@@ -2112,7 +2132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007018566, y: -0.007020235}
+  m_Offset: {x: -0.007018566, y: 0.1299696}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2123,7 +2143,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57888603, y: 0.9438391}
+  m_Size: {x: 0.57888603, y: 0.6698594}
   m_EdgeRadius: 0
 --- !u!212 &758604256
 SpriteRenderer:
@@ -2162,9 +2182,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 876998595
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ddb77db15f2367e4eb2cfad06080e434, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2184,12 +2204,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758604253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.011, y: 1.4864235, z: 0}
+  m_LocalPosition: {x: 2.5, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758604258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758604253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acee00151061f314cb62439bce5447d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    lines:
+    - Why hello, it looks like you've gotten lost.
+    - 'This is my room. '
 --- !u!1 &975718446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2340,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2464,7 +2500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1013259790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2548,7 +2584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092307406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19145286, y: 2.6181831, z: 0}
+  m_LocalPosition: {x: 0.19145286, y: 2.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1417828717}
@@ -2811,6 +2847,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4026092518934730554, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026092518934730554, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026092519512058565, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6767118824950908606, guid: bea03b1ea7378924e92fc153624950a5, type: 3}
       propertyPath: m_Offset.x
       value: -0.014010429
