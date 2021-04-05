@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Menus/InstructionsMenu.unity
+    guid: edfe7c02381d9024d86124ed6b3e1044
+  - enabled: 1
+    path: Assets/Scenes/Menus/SettingsMenu.unity
+    guid: 944b419e758bea54e8e06f43d7947182
+  - enabled: 1
     path: Assets/Scenes/Area1/CryostasisChamber.unity
     guid: c89840c12242d114e8fb2de0c86d9346
   - enabled: 1
@@ -17,19 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area1/CaptainRoom.unity
     guid: 815b0031f5db47540a95fe5b9e0e798d
-  - enabled: 0
-    path: Assets/Scenes/LevelOne.unity
-    guid: 2ea518ce75b6e9846a6838c57374642a
-  - enabled: 0
-    path: Assets/Scenes/LevelTwo.unity
-    guid: 23c9a4bd5ed07fc448fcc1c8451a7d07
-  - enabled: 0
-    path: Assets/Scenes/LevelPuzzle.unity
-    guid: 53e06ef98076eed49b200f49b1b0461e
-  - enabled: 1
-    path: Assets/Scenes/Menus/InstructionsMenu.unity
-    guid: edfe7c02381d9024d86124ed6b3e1044
-  - enabled: 1
-    path: Assets/Scenes/Menus/SettingsMenu.unity
-    guid: 944b419e758bea54e8e06f43d7947182
   m_configObjects: {}

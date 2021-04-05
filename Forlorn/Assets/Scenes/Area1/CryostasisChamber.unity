@@ -7742,6 +7742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 7564062847286875421, guid: 05c2b60ad7102774ca385453456f23d5, type: 3}
+      propertyPath: sceneToLoad
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7564062847286875422, guid: 05c2b60ad7102774ca385453456f23d5, type: 3}
       propertyPath: m_Offset.y
       value: 0.19595766
