@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    const float offsetY = 0.3f;
+
     public float moveSpeed;
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
@@ -16,9 +19,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        {
-            animator = GetComponent<Animator>();
-        }
+        animator = GetComponent<Animator>();
+        SetPositionAndSnapToTile(transform.position);
+
     }
 
     public void HandleUpdate()
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
                 if (isWalkable(targetPos))
                 {
-                    StartCoroutine(Move(targetPos));
+                    StartCoroutine(Move(targetPos, OnMoveOver));
                 }
                 
             }
@@ -56,6 +59,31 @@ public class PlayerController : MonoBehaviour
         {
             Interact();
         }
+    }
+
+    private void OnMoveOver()
+    {
+        var colliders = Physics2D.OverlapCircleAll(transform.position - new Vector3(0, offsetY), 0.2f, GameLayers.i.TriggerableLayers);
+
+        foreach (var collider in colliders)
+        {
+            var triggerable = collider.GetComponent<IPlayerTriggerable>();
+
+            if (triggerable != null)
+            {
+                isMoving = false;
+                triggerable.OnPlayerTriggered(this);
+                break;
+            }
+        }
+    }
+
+    public void SetPositionAndSnapToTile(Vector2 pos)
+    {
+        pos.x = Mathf.Floor(pos.x) + 0.5f;
+        pos.y = Mathf.Floor(pos.y) + 0.5f + offsetY;
+
+        transform.position = pos;
     }
 
     void Interact()
@@ -72,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator Move(Vector3 targetPos)
+    IEnumerator Move(Vector3 targetPos, Action OnMoveOver = null)
     {
         isMoving = true;
 
@@ -84,6 +112,8 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+
+        OnMoveOver?.Invoke();
     }
 
     private bool isWalkable(Vector3 targetPos)
@@ -95,5 +125,6 @@ public class PlayerController : MonoBehaviour
 
         return true;
     }
+
 }
 
