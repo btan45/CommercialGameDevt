@@ -607,6 +607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 8843812830239428546, guid: b357d7abeca61f74797225e364c8ce0c, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 2701772648521510811}
+    - target: {fileID: 8843812830239428546, guid: b357d7abeca61f74797225e364c8ce0c, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 2701772649034893290}
     - target: {fileID: 8843812830239428547, guid: b357d7abeca61f74797225e364c8ce0c, type: 3}
       propertyPath: playerController
       value: 
