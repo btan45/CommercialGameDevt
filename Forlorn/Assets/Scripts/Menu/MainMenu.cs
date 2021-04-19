@@ -25,9 +25,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void GoToLevelOne()
+    public void GoToBack()
     {
-        SceneManager.LoadScene("LevelOne");
+        SceneManager.LoadScene("Hallway1");
     }
 
     public void FinishGame()

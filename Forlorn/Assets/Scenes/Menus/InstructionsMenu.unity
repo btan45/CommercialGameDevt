@@ -958,7 +958,7 @@ MonoBehaviour:
     SPACE KEY TO INTERACT
 
 
-    Esc to return to main menu'
+    Esc to pause'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: da8b3fd6490532f41872dde6db58711f, type: 2}
   m_sharedMaterial: {fileID: 7999538395554620156, guid: da8b3fd6490532f41872dde6db58711f, type: 2}

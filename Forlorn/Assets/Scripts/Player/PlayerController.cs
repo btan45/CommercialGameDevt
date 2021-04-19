@@ -16,12 +16,21 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
 
     private Animator animator;
+    private AudioSource audioSource;
+    private AudioClip interactSound;
+    private AudioClip walkSound;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         SetPositionAndSnapToTile(transform.position);
+        audioSource = GetComponent<AudioSource>();
+    }
 
+    private void Start()
+    {
+        interactSound = (AudioClip)Resources.Load("interact");
+        walkSound = (AudioClip)Resources.Load("Walking");
     }
 
     public void HandleUpdate()
@@ -38,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
+                audioSource.clip = walkSound;
+                audioSource.Play();
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
 
@@ -96,6 +107,8 @@ public class PlayerController : MonoBehaviour
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
         if (collider != null)
         {
+            audioSource.clip = interactSound;
+            audioSource.Play();
             collider.GetComponent<Interactable>()?.Interact();
         }
     }
